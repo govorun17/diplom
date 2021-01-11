@@ -33,3 +33,6 @@ build/
 .vscode/
 
 *.exe
+mvnw
+*.cmd
+.mvn
