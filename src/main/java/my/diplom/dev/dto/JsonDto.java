@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class JsonDto {
-	public String type;
+	private String type;
 	@JsonProperty("group_id")
-	public Long groupId;
+	private Long groupId;
 	private String secret;
 	@JsonProperty("object")
 	private JsonNode json;
