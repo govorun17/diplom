@@ -43,7 +43,7 @@ public class CallbackController {
 		if(group == null) {
 			return new ResponseEntity<>(String.format("Не найдена группа с id %d", jsonDto.getGroupId()), HttpStatus.BAD_REQUEST);
 		}
-		if(jsonDto.getSecret().equals(group.getSecret())){
+		if(!jsonDto.getSecret().equals(group.getSecret())){
 			return new ResponseEntity<>("NOPE!", HttpStatus.CONFLICT);
 		}
 		return new ResponseEntity<>(group.getCode(), HttpStatus.OK);
