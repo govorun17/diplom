@@ -2,6 +2,7 @@ package my.diplom.dev.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
+import my.diplom.dev.dto.Events;
 import my.diplom.dev.dto.VkDto;
 import my.diplom.dev.dto.JsonDto;
 import my.diplom.dev.entity.Group;
@@ -40,18 +41,22 @@ public class CallbackController {
 	@PostMapping
 	public ResponseEntity<String> callback(@RequestBody JsonDto jsonDto) {
 		Group group = groupService.findById(jsonDto.getGroupId());
-		if(group == null) {
-			return new ResponseEntity<>(String.format("Не найдена группа с id %d", jsonDto.getGroupId()), HttpStatus.BAD_REQUEST);
-		}
-		if(!jsonDto.getSecret().equals(group.getSecret())){
-			return new ResponseEntity<>("NOPE!", HttpStatus.CONFLICT);
-		}
-		return new ResponseEntity<>(group.getCode(), HttpStatus.OK);
-	}
 
-	// TODO: 13.01.2021 совместить конфирмацию и колбэк
-	@PostMapping("/callback")
-	public ResponseEntity<String> callback(@RequestBody JsonNode json) {
-		return new ResponseEntity<>("ok", HttpStatus.OK);
+		if(!groupService.validateGroup(group, jsonDto.getSecret())) {
+			return new ResponseEntity<>(Events.OK.label(), HttpStatus.OK);
+		}
+
+		if(Events.CONFIRMATION.label().equals(jsonDto.getType())) {
+			return new ResponseEntity<>(group.getCode(), HttpStatus.OK);
+		}
+		else if(Events.MESSAGE.label().equals(jsonDto.getType())) {
+
+		}
+		else if(Events.EVENT.label().equals(jsonDto.getType())){
+
+		}
+		else {
+			return new ResponseEntity<>(Events.OK.label(), HttpStatus.OK);
+		}
 	}
 }
