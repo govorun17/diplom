@@ -1,16 +1,17 @@
 package my.diplom.dev.controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import my.diplom.dev.dto.Events;
-import my.diplom.dev.dto.VkDto;
 import my.diplom.dev.dto.JsonDto;
+import my.diplom.dev.dto.VkDto;
 import my.diplom.dev.entity.Group;
 import my.diplom.dev.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @Slf4j
@@ -28,6 +29,14 @@ public class CallbackController {
 		this.groupService = groupService;
 	}
 
+	/**
+	 * создает новую группу в базе для работы бота
+	 * @param id id группы
+	 * @param key ключ подтверждения
+	 * @param secret секретный ключ
+	 * @param token токен ключа доступа
+	 * @return возвращает информацию для проверки
+	 */
 	@GetMapping
 	public ResponseEntity<Object> setKey(
 			@RequestParam Long id,
@@ -39,7 +48,10 @@ public class CallbackController {
 	}
 
 	@PostMapping
-	public ResponseEntity<String> callback(@RequestBody JsonDto jsonDto) {
+	public ResponseEntity<String> callback(
+			@RequestBody JsonDto jsonDto,
+			HttpServletRequest request
+	) {
 		Group group = groupService.findById(jsonDto.getGroupId());
 
 		if(!groupService.validateGroup(group, jsonDto.getSecret())) {
@@ -58,5 +70,6 @@ public class CallbackController {
 		else {
 			return new ResponseEntity<>(Events.OK.label(), HttpStatus.OK);
 		}
+		return ResponseEntity.ok(Events.OK.label());
 	}
 }
