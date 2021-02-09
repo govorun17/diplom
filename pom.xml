@@ -21,10 +21,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-bom</artifactId>
+			<artifactId>vaadin-spring-boot-starter</artifactId>
 			<version>18.0.5</version>
-			<type>pom</type>
-			<scope>import</scope>
 		</dependency>
 
 		<dependency>
