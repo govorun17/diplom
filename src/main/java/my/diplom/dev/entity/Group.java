@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "group_vk")
+@Table(name = "groups_vk")
 public class Group {
 	@Id
 	@JsonProperty(value = "group_id")

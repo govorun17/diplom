@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Table
+@Table(name = "message_logs")
 @Entity
 @Getter
 @Setter

@@ -32,7 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-*.exe
+ngrok.exe
 mvnw
 *.cmd
 .mvn
