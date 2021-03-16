@@ -1,0 +1,38 @@
+@startuml
+
+start
+:TerminalServerConfig;
+:SecurityConfig;
+if (isDataBasePropsExist) then (true)
+    :DataBaseConfig;
+else (false)
+endif
+:StartServer;
+:WaitRequest;
+if (isVkMessage) then (true)
+    :ParseMessage;
+    :GetAnswerFromDataBase;
+    if (isNullAnswer OR !isApprovedByModerator) then (true)
+        if (isNullAnswer) then (true)
+            :NotificationToModerator;
+        else (false)
+        endif
+        :AskUserAboutAnswer;
+        :SaveAnswerInDataBase;
+        :GetPleasureAnswerFromDataBase;
+    else (false)
+        :getAnswerFromDataBase;
+    endif
+else (false)
+    if (isModeratingRequest) then (true)
+        :CreateDTO;
+        :UpdDataBase;
+    else (false)
+        :GenerateError;
+    endif
+endif
+:CreateResponse;
+:SendResponse;
+stop
+
+@enduml
