@@ -1,0 +1,40 @@
+@startuml
+
+skinparam Shadowing false
+
+skinparam ArrowFontStyle normal
+skinparam ArrowFontName Courier
+skinparam ArrowFontSize 10
+
+title ChatBot Use Case\n
+
+
+:User: as User #red
+:Admin: as Admin #blue
+:Moderator: as Moderator #green
+
+Admin --|> Moderator
+Moderator --|> User
+
+'package AdminPanel {
+'    (Auth)
+'    (DataBase)
+'    (AddingModerators)
+'    (ControllingBot)
+'}
+'
+'package VkChat {
+'    (Chat)
+'    (UseServices)
+'}
+
+Admin --> (AddingModerators)
+Admin --> (ControllingBot)
+Moderator --> (Auth)
+Moderator --> (DataBase)
+(Training) ..>"extended" (DataBase)
+() ..>"extended" (DataBase)
+User --> (Chat)
+User --> (UseServices)
+
+@enduml

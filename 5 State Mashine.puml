@@ -1,0 +1,46 @@
+@startuml
+title State Machine: Chat Bot \n
+
+state Configuring {
+    state fork_DB_in <<fork>>
+    state fork_DB_out <<fork>>
+    state entryConf <<entryPoint>>
+    state exitConf <<exitPoint>>
+
+    entryConf --> TerminalServerConfig
+    TerminalServerConfig -right-> SecurityConfig : using config file
+    SecurityConfig --> fork_DB_in
+    fork_DB_in -left-> DBConfig : if exist
+    DBConfig --> fork_DB_out
+    fork_DB_in -left-> fork_DB_out : if not exist
+    fork_DB_out --> exitConf
+}
+
+[*] --> entryConf
+
+state Operating {
+    state entryOp <<entryPoint>>
+    state exitOp <<exitPoint>>
+    state fork_Request <<fork>>
+    state choice_DB <<choice>>
+
+    entryOp --> WaitingRequest
+    WaitingRequest --> fork_Request
+    fork_Request --> WaitingRequest : no request
+    fork_Request --> CreatingThread : request
+    CreatingThread --> ParseMessage
+    ParseMessage --> choice_DB
+    choice_DB --> NotificationToModerator : phrase not exist in db
+    choice_DB --> AskUserAboutAnswer : phrase not approved by moderator
+    choice_DB --> AnswerUser : phrase exist in db and approved
+    NotificationToModerator --> AskUserAboutAnswer
+    AskUserAboutAnswer --> SaveAnswerInDB
+    SaveAnswerInDB --> AnswerUser
+    AnswerUser --> WaitingRequest
+    WaitingRequest -right-> exitOp
+}
+
+exitOp -> [*] : terminate server
+
+exitConf --> entryOp
+@enduml

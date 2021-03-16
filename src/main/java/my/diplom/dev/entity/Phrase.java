@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Phrases {
+public class Phrase {
 	public static final String COMMON_PHRASES = "COMMON_PHRASES";
 	public static final String ELUSIVE_ANSWERS = "ELUSIVE_ANSWERS";
 	public static final String PATTERNS_FOR_ANALYSIS = "PATTERNS_FOR_ANALYSIS";

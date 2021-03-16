@@ -1,0 +1,40 @@
+@startuml
+
+autonumber
+
+actor User
+control Server
+database DB
+
+User -> Server : Message request
+activate Server
+Server -> Server : Parse message
+Server -> DB : Get answer if exist
+activate DB
+activate DB
+
+alt exist
+    DB --> Server : Answer
+    deactivate DB
+    Server -> Server : Generate response
+else not exist
+    DB --> Server : Null answer
+    deactivate DB
+    Server -> User : What is correct answer
+    activate Server
+    User --> Server : Correct answer
+    deactivate Server
+    Server -> Server : Parse answer
+    Server -> DB : Save answer
+    activate DB
+    deactivate DB
+    Server -> DB : Get pleasure answer
+    activate DB
+    DB --> Server : Pleasure answer
+    deactivate DB
+    Server -> Server : Generate response
+end
+
+Server --> User : Message response
+deactivate Server
+@enduml
