@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>my.diplom.dev</OriginalElement>
+  <nodes>
+    <node x="58.25" y="270.0">my.diplom.dev.service</node>
+    <node x="168.3320238095238" y="380.0">my.diplom.dev.controller</node>
+    <node x="31.234285714285704" y="190.0">my.diplom.dev.repo</node>
+    <node x="8.9022619047619" y="380.0">my.diplom.dev.web</node>
+    <node x="150.8095238095238" y="0.0">my.diplom.dev.dto</node>
+    <node x="54.533214285714266" y="80.0">my.diplom.dev.entity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="my.diplom.dev.controller" target="my.diplom.dev.entity">
+      <point x="0.0" y="-15.0" />
+      <point x="256.3320238095238" y="150.0" />
+      <point x="188.2475" y="150.0" />
+      <point x="61.71428571428572" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.service" target="my.diplom.dev.service">
+      <point x="-38.0" y="15.0" />
+      <point x="96.25" y="330.0" />
+      <point x="28.25" y="330.0" />
+      <point x="28.25" y="277.5" />
+      <point x="-76.0" y="-7.5" />
+    </edge>
+    <edge source="my.diplom.dev.web" target="my.diplom.dev.entity">
+      <point x="-15.0" y="-15.0" />
+      <point x="53.9022619047619" y="350.0" />
+      <point x="11.0" y="350.0" />
+      <point x="11.0" y="160.0" />
+      <point x="105.96178571428571" y="160.0" />
+      <point x="-20.571428571428555" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.controller" target="my.diplom.dev.dto">
+      <point x="70.4" y="-15.0" />
+      <point x="326.7320238095238" y="350.0" />
+      <point x="283.22488095238094" y="350.0" />
+      <point x="283.22488095238094" y="50.0" />
+      <point x="255.8095238095238" y="50.0" />
+      <point x="44.99999999999999" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.service" target="my.diplom.dev.entity">
+      <point x="57.0" y="-15.0" />
+      <point x="191.25" y="245.0" />
+      <point x="208.78333333333333" y="245.0" />
+      <point x="208.78333333333333" y="160.0" />
+      <point x="167.67607142857145" y="160.0" />
+      <point x="41.14285714285717" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.repo" target="my.diplom.dev.entity">
+      <point x="0.0" y="-15.0" />
+      <point x="95.2342857142857" y="170.0" />
+      <point x="126.53321428571427" y="170.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.controller" target="my.diplom.dev.service">
+      <point x="-70.4" y="-15.0" />
+      <point x="185.9320238095238" y="360.0" />
+      <point x="172.24999999999997" y="360.0" />
+      <point x="37.99999999999997" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.web" target="my.diplom.dev.service">
+      <point x="15.0" y="-15.0" />
+      <point x="83.9022619047619" y="350.0" />
+      <point x="121.58333333333334" y="350.0" />
+      <point x="-12.666666666666657" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.entity" target="my.diplom.dev.dto">
+      <point x="-36.0" y="-15.0" />
+      <point x="90.53321428571427" y="50.0" />
+      <point x="165.8095238095238" y="50.0" />
+      <point x="-45.0" y="15.0" />
+    </edge>
+    <edge source="my.diplom.dev.entity" target="my.diplom.dev.entity">
+      <point x="-61.71428571428572" y="15.0" />
+      <point x="64.81892857142854" y="130.0" />
+      <point x="34.53321428571425" y="130.0" />
+      <point x="34.53321428571425" y="95.0" />
+      <point x="-72.0" y="-0.0" />
+    </edge>
+    <edge source="my.diplom.dev.service" target="my.diplom.dev.repo">
+      <point x="-57.0" y="-15.0" />
+      <point x="77.25" y="245.0" />
+      <point x="63.234285714285704" y="245.0" />
+      <point x="-32.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.6" x="181.57692307692315" y="187.17948717948704" />
+  <SelectedNodes>
+    <node>my.diplom.dev.service</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

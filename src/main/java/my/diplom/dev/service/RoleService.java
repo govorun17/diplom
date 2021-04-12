@@ -1,6 +1,6 @@
 package my.diplom.dev.service;
 
-import my.diplom.dev.entity.Role;
+import my.diplom.dev.dto.entity.Role;
 import my.diplom.dev.repo.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

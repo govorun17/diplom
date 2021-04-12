@@ -1,4 +1,4 @@
-package my.diplom.dev.entity;
+package my.diplom.dev.dto.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

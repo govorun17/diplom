@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>SpringLocalModels</ID>
+  <OriginalElement>module=dev</OriginalElement>
+  <nodes>
+    <node x="0.0" y="30.0">module=dev</node>
+    <node x="137.5" y="0.0">fileset=dev/DevApplication</node>
+    <node x="337.0" y="30.0">my.diplom.dev.DevApplication</node>
+    <node x="123.0" y="60.0">fileset=dev/DevApplication MVC</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="fileset=dev/DevApplication MVC" target="my.diplom.dev.DevApplication">
+      <point x="67.0" y="-0.0" />
+      <point x="-52.5" y="5.0" />
+    </edge>
+    <edge source="fileset=dev/DevApplication" target="my.diplom.dev.DevApplication">
+      <point x="52.5" y="-0.0" />
+      <point x="257.0" y="10.0" />
+      <point x="-52.5" y="-5.0" />
+    </edge>
+    <edge source="module=dev" target="fileset=dev/DevApplication">
+      <point x="21.5" y="-5.0" />
+      <point x="123.0" y="10.0" />
+      <point x="-52.5" y="-0.0" />
+    </edge>
+    <edge source="module=dev" target="fileset=dev/DevApplication MVC">
+      <point x="21.5" y="5.0" />
+      <point x="-67.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="221.0" y="40.0" />
+  <SelectedNodes>
+    <node>module=dev</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Show filesets as groups</Category>
+  </Categories>
+</Diagram>
+

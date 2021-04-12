@@ -33,7 +33,7 @@ Admin --> (ControllingBot)
 Moderator --> (Auth)
 Moderator --> (DataBase)
 (Training) ..>"extended" (DataBase)
-() ..>"extended" (DataBase)
+(DeletePhrases) ..>"extended" (DataBase)
 User --> (Chat)
 User --> (UseServices)
 

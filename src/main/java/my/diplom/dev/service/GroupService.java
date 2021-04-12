@@ -1,6 +1,6 @@
 package my.diplom.dev.service;
 
-import my.diplom.dev.entity.Group;
+import my.diplom.dev.dto.entity.Group;
 import my.diplom.dev.repo.GroupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import my.diplom.dev.dto.Events;
 import my.diplom.dev.dto.JsonDto;
 import my.diplom.dev.dto.VkDto;
-import my.diplom.dev.entity.Group;
+import my.diplom.dev.dto.entity.Group;
 import my.diplom.dev.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package my.diplom.dev.entity;
+package my.diplom.dev.dto.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

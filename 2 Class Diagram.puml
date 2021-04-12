@@ -1,0 +1,114 @@
+@startuml
+
+title Class Diagram \n
+
+entity Message {
+    - Long id
+    - String message
+    - Timestamp datetime
+
+    + getters()
+    + setters()
+}
+
+entity VkUser {
+    - Long id
+    - String vkId
+    - Modes mode
+    - List<Message> request
+    - List<Message response
+
+    + getters()
+    + setters()
+
+    {static} + newUser(String vkId)
+}
+
+enum Modes {
+    DEFAULT
+    CHAT
+}
+
+entity Group {
+    - Long groupId
+    - String code
+    - String secret
+    - String token
+
+    + getters()
+    + setters()
+}
+
+entity Phrase {
+    + {static} String COMMON_PHRASES
+    + {static} String ELUSIVE_ANSWERS
+    + {static} String PATTERNS_FOR_ANALYSIS
+    + {static} String ANSWERS_BY_PATTERNS
+
+    - Long id
+    - String type
+    - String key
+    - String value
+
+    + getters()
+    + setters()
+}
+
+entity Role {
+    - Long id
+    - String name
+
+    + getters()
+    + setters()
+}
+
+enum Events {
+    + CONFIRMATION - "confirmation"
+    + MESSAGE - "message_new"
+    + EVENT - "message_event"
+    + OK - "ok"
+    - String label
+
+    - Events(String label)
+    + String label()
+}
+
+class JsonDto {
+	- String type
+	- Long groupId
+	- String secret
+	- JsonNode json
+}
+
+class CallbackController {
+
+}
+
+class AppStartService {
+
+}
+
+class CallbackService {
+
+}
+
+class GroupService {
+
+}
+
+class RoleService {
+
+}
+
+interface GroupRepo {
+
+}
+
+interface RoleRepo {
+
+}
+
+interface JpaRepository<T, ID>
+note left of JpaRepository : System interface
+
+@enduml
