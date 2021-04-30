@@ -1,21 +1,17 @@
-package my.diplom.dev.service;
+package my.diplom.dev.service.importer;
 
+import lombok.Setter;
 import my.diplom.dev.dto.entity.Role;
+import my.diplom.dev.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AppStartService {
-	RoleService roleService;
-
-	@Autowired
-	private void setAutowired(
-			RoleService roleService
-	) {
-		this.roleService = roleService;
-	}
+@Setter(onMethod = @__(@Autowired))
+public class RoleImport {
+	private RoleService roleService;
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void validateRoles() {

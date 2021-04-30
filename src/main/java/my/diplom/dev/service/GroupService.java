@@ -1,20 +1,15 @@
 package my.diplom.dev.service;
 
+import lombok.Setter;
 import my.diplom.dev.dto.entity.Group;
 import my.diplom.dev.repo.GroupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Setter(onMethod = @__(@Autowired))
 public class GroupService {
 	private GroupRepo groupRepo;
-
-	@Autowired
-	private void setAutowired(
-			GroupRepo groupRepo
-	) {
-		this.groupRepo = groupRepo;
-	}
 
 	public Group findById(Long id) {
 		return groupRepo.findById(id).orElse(null);

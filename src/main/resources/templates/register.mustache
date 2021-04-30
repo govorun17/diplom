@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VSU Helper Студента</title>
+</head>
+
+<body>
+    <form action="/auth/register" method="post">
+        <div class="container">
+            <h1>Регистрация</h1>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="password"><b>Пароль</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+            <label for="passwordRepeat"><b>Повторите пароль</b></label>
+            <input type="password" placeholder="Repeat Password" name="passwordRepeat" id="passwordRepeat" required>
+            <hr>
+
+            <button type="submit" class="registerbtn">Зарегистрироваться</button>
+        </div>
+
+        <div class="container signin">
+            <p>Уже есть аккаунт <a href="/h">Войти</a>.</p>
+        </div>
+    </form>
+</body>
+</html>
