@@ -2,33 +2,31 @@ package my.diplom.dev.service.importer;
 
 import lombok.AccessLevel;
 import lombok.Setter;
-import my.diplom.dev.dto.entity.Role;
+import my.diplom.dev.dto.entity.User;
 import my.diplom.dev.service.RoleService;
+import my.diplom.dev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @Setter(value = AccessLevel.PRIVATE, onMethod = @__(@Autowired))
-public class RoleImport {
-
+public class UserImport {
+	private UserService userService;
 	private RoleService roleService;
+	private PasswordEncoder encoder;
 
-	@Order(0)
+	@Order(1)
 	@EventListener(ApplicationReadyEvent.class)
-	public void importRoles() {
-		Role role = new Role();
-		role.setName(RoleService.USER);
-		roleService.saveIfNotExists(role);
-
-		role = new Role();
-		role.setName(RoleService.ADMIN);
-		roleService.saveIfNotExists(role);
-
-		role = new Role();
-		role.setName(RoleService.MODERATOR);
-		roleService.saveIfNotExists(role);
+	public void importUser() {
+		User admin = new User();
+		admin.setUsername("admin");
+		admin.setPassword(encoder.encode("admin"));
+		admin.setActivated(true);
+		admin.setRole(roleService.findByName(RoleService.ADMIN));
+		userService.saveIfNotExists(admin);
 	}
 }

@@ -2,6 +2,7 @@ package my.diplom.dev.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AccessLevel;
 import lombok.Setter;
 import my.diplom.dev.dto.MessageDto;
 import my.diplom.dev.dto.entity.Group;
@@ -17,7 +18,7 @@ import java.util.List;
 public class MessageService {
 	private static final String SIGNS = "\".,/@'!;:_=%#№`~";
 
-	@Setter(onMethod = @__(@Autowired))
+	@Setter(value = AccessLevel.PRIVATE, onMethod = @__(@Autowired))
 	private VkBuilder vkBuilder;
 
 	public void sendAnswer(JsonNode json, Group group) {

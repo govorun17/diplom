@@ -1,5 +1,6 @@
 package my.diplom.dev.service.importer;
 
+import lombok.AccessLevel;
 import lombok.Setter;
 import my.diplom.dev.dto.mongo.Dictionary;
 import my.diplom.dev.repo.DictionaryRepo;
@@ -20,10 +21,9 @@ public class DictionaryImport {
 	@Value("${import.file.path}")
 	private String path;
 
-	@Setter(onMethod = @__(@Autowired))
+	@Setter(value = AccessLevel.PRIVATE, onMethod = @__(@Autowired))
 	private DictionaryRepo dictionaryRepo;
 
-	@Order(0)
 	@EventListener(ApplicationReadyEvent.class)
 	public void importDictionaryFromFile() {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {

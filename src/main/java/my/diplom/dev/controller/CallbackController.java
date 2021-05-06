@@ -1,5 +1,6 @@
 package my.diplom.dev.controller;
 
+import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import my.diplom.dev.dto.Events;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@Setter(onMethod = @__(@Autowired))
+@Setter(value = AccessLevel.PRIVATE, onMethod = @__(@Autowired))
 @Slf4j
 public class CallbackController {
 	// TODO: 13.01.2021 разобраться с конфигами спринга чтобы вынести проперти в json????

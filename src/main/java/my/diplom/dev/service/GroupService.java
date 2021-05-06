@@ -1,5 +1,6 @@
 package my.diplom.dev.service;
 
+import lombok.AccessLevel;
 import lombok.Setter;
 import my.diplom.dev.dto.entity.Group;
 import my.diplom.dev.repo.GroupRepo;
@@ -7,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@Setter(onMethod = @__(@Autowired))
+@Setter(value = AccessLevel.PRIVATE, onMethod = @__(@Autowired))
 public class GroupService {
 	private GroupRepo groupRepo;
 
