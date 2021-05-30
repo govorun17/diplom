@@ -5,6 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+    <form action="/words/" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <label for="word"><b>Слово</b></label>
+        <input type="text" placeholder="Слово" value="{{value}}" name="word" id="word">
+        <button type="submit" class="findbtn">Найти</button>
+    </form>
 
+    {{#list}}
+        <ul>
+            <li>{{.}}</li>
+        </ul>
+    {{/list}}
+    {{^list}}
+        Слова не найдены
+    {{/list}}
+    <div>
+        {{#prev}}
+            <a href="/words/{{prev}}">Назад</a>
+        {{/prev}}
+        {{#next}}
+            <a href="/words/{{next}}">Далее</a>
+        {{/next}}
+    </div>
 </body>
 </html>

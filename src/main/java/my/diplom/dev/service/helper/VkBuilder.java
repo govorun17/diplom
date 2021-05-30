@@ -1,4 +1,4 @@
-package my.diplom.dev.service.builder;
+package my.diplom.dev.service.helper;
 
 import my.diplom.dev.dto.entity.Group;
 import org.springframework.beans.factory.annotation.Value;

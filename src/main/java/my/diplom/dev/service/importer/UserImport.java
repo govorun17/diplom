@@ -2,6 +2,7 @@ package my.diplom.dev.service.importer;
 
 import lombok.AccessLevel;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import my.diplom.dev.dto.entity.User;
 import my.diplom.dev.service.RoleService;
 import my.diplom.dev.service.UserService;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 @Setter(value = AccessLevel.PRIVATE, onMethod = @__(@Autowired))
 public class UserImport {
 	private UserService userService;
@@ -28,5 +30,6 @@ public class UserImport {
 		admin.setActivated(true);
 		admin.setRole(roleService.findByName(RoleService.ADMIN));
 		userService.saveIfNotExists(admin);
+		log.info("Пользователь Администратор создан");
 	}
 }
